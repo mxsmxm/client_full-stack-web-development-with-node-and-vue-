@@ -41,12 +41,12 @@
       <v-toolbar-side-icon @click.stop="drawer=!drawer"></v-toolbar-side-icon>
       <v-toolbar-title>电影评分网</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toobar-items>
+      <v-toolbar-items>
         <v-btn
           flat
           to="/movies"
         >
-          <v-icon>movie</v-icon> 电影
+          <v-icon>movie</v-icon> 添加电影
         </v-btn>
         <v-btn
           flat
@@ -60,11 +60,13 @@
         >
           <v-icon>edit</v-icon> 注册
         </v-btn>
-      </v-toobar-items>
+      </v-toolbar-items>
     </v-toolbar>
 
     <v-content>
-      <router-view></router-view>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
     </v-content>
   </v-app>
 </template>

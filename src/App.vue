@@ -1,38 +1,82 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
+    <!-- 侧边栏 -->
+    <v-navigation-drawer
+      fixed
+      v-model="drawer"
+      app
+    >
+      <v-list dense>
+        <v-list-tile
+          to="/"
+          ripple
+        >
+          <v-list-tile-action>
+            <v-icon>home</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Home</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile
+          to="/contact"
+          ripple
+        >
+          <v-list-tile-action>
+            <v-icon>contact_mail</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Contact</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <!-- 顶部导航栏 -->
+    <v-toolbar
+      color="indigo"
+      dark
+      fixed
+      app
+    >
+      <v-toolbar-side-icon @click.stop="drawer=!drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>电影评分网</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
+      <v-toobar-items>
+        <v-btn
+          flat
+          to="/movies"
+        >
+          <v-icon>movie</v-icon> 电影
+        </v-btn>
+        <v-btn
+          flat
+          to="/login"
+        >
+          <v-icon>lock_open</v-icon> 登录
+        </v-btn>
+        <v-btn
+          flat
+          to="signup"
+        >
+          <v-icon>edit</v-icon> 注册
+        </v-btn>
+      </v-toobar-items>
     </v-toolbar>
 
     <v-content>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
-  data () {
+  name: "App",
+  components: {},
+  data() {
     return {
-      //
-    }
+      drawer: null
+    };
   }
-}
+};
 </script>

@@ -68,16 +68,25 @@
         <router-view></router-view>
       </v-container>
     </v-content>
+    <v-footer
+      color="indigo"
+      class="text-xs-center"
+      app
+    >
+      <span color="white-text ">&copy;copyright{{data}}</span>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
+import moment from "moment";
 export default {
   name: "App",
   components: {},
   data() {
     return {
-      drawer: null
+      drawer: null,
+      data: moment().format("llll")
     };
   }
 };
